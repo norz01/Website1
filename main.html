@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Nama Kedai Anda] - Pelbagai Pilihan Untuk Keperluan Anda</title>
+    <style>
+        /* style.css */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        header .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav a.cart {
+            font-weight: bold;
+        }
+
+        .hero {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex-basis: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #e8491d;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c63d17;
+        }
+
+        .hero-image {
+            flex-basis: 40%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .produk-section {
+            padding: 60px 0;
+        }
+
+        .produk-section.bg-light {
+            background-color: #fff;
+        }
+
+        .produk-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .produk {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .produk:hover {
+            transform: translateY(-5px);
+        }
+
+        .produk img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .produk h3 {
+            padding: 15px;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .produk p {
+            padding: 0 15px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .produk .harga {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e8491d;
+        }
+
+        .produk button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .produk button:hover {
+            background-color: #555;
+        }
+
+        .lihat-semua {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .lihat-semua a {
+            color: #e8491d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .bg-light {
+            background-color: #fff;
+        }
+
+        #tentang-kami .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .tentang-kami-content {
+            flex-basis: 60%;
+        }
+
+        .tentang-kami-content img {
+            flex-basis: 40%;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        #hubungi-kami .hubungi-kami-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .informasi-kontak h3, .formulir-kontak h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .formulir-kontak input[type="text"],
+        .formulir-kontak input[type="email"],
+        .formulir-kontak textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .formulir-kontak textarea {
+            height: 150px;
+        }
+
+        .formulir-kontak button {
+            background-color: #e8491d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .formulir-kontak button:hover {
+            background-color: #c63d17;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        /* Animasi */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-in {
+            transform: translateX(-100%);
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .animate-pop-up {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .produk:nth-child(odd).animate-pop-up {
+            animation-delay: 0.2s;
+        }
+
+        .produk:nth-child(even).animate-pop-up {
+            animation-delay: 0.4s;
+        }
+
+        .produk.animate-pop-up.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .animate-slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            header nav {
+                float: none;
+                text-align: center;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                flex-basis: 100%;
+                padding-right: 0;
+            }
+
+            .hero-image {
+                flex-basis: 100%;
+                margin-top: 30px;
+            }
+
+            #tentang-kami .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tentang-kami-content {
+                flex-basis: 100%;
+            }
+
+            .tentang-kami-content img {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">[Logo Kedai Anda]</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#makanan">Makanan</a></li>
+                    <li><a href="#perkhidmatan">Perkhidmatan</a></li>
+                    <li><a href="#kasut">Kasut</a></li>
+                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="#hubungi-kami">Hubungi Kami</a></li>
+                    <li><a href="#" class="cart">Keranjang (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1>Temukan Semua yang Anda Butuhkan di Satu Tempat</h1>
+                <p>Dari hidangan lezat hingga layanan profesional dan alas kaki bergaya, kami punya semuanya!</p>
+                <a href="#" class="cta-button">Belanja Sekarang</a>
+            </div>
+            <div class="hero-image animate-slide-in">
+                <img src="gambar/hero.jpg" alt="Berbagai Produk Kami">
+            </div>
+        </div>
+    </section>
+
+    <section id="makanan" class="produk-section">
+        <div class="container">
+            <h2>Makanan Terlaris</h2>
+            <div class="produk-grid">
+                <div class="produk animate-pop-up">
+                    <img src="gambar/makanan1.jpg" alt="Nama Makanan">
+                    <h3>Nama Makanan</h3>
+                    <p>Deskripsi singkat makanan.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <div class="produk animate-pop-up">
+                    <img src="gambar/makanan2.jpg" alt="Nama Makanan">
+                    <h3>Nama Makanan</h3>
+                    <p>Deskripsi singkat makanan.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <div class="produk animate-pop-up">
+                    <img src="gambar/makanan3.jpg" alt="Nama Makanan">
+                    <h3>Nama Makanan</h3>
+                    <p>Deskripsi singkat makanan.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <!-- Lebih banyak produk makanan -->
+            </div>
+            <div class="lihat-semua">
+                <a href="#">Lihat Semua Makanan</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="perkhidmatan" class="produk-section bg-light">
+        <div class="container">
+            <h2>Perkhidmatan Kami</h2>
+            <div class="produk-grid">
+                <div class="produk animate-pop-up">
+                    <img src="gambar/servis1.jpg" alt="Cuci Langsir">
+                    <h3>Cuci Langsir Profesional</h3>
+                    <p>Langsir bersih, rumah lebih segar. Pesan layanan kami sekarang!</p>
+                    <span class="harga">Mulai dari RM XX.XX</span>
+                    <button class="pesan-sekarang">Pesan Sekarang</button>
+                </div>
+                <div class="produk animate-pop-up">
+                    <img src="gambar/servis2.jpg" alt="Servis Lain">
+                    <h3>Servis Lain</h3>
+                    <p>Deskripsi singkat servis lain yang Anda tawarkan.</p>
+                    <span class="harga">Mulai dari RM XX.XX</span>
+                    <button class="pesan-sekarang">Pesan Sekarang</button>
+                </div>
+                <!-- Lebih banyak layanan -->
+            </div>
+            <div class="lihat-semua">
+                <a href="#">Lihat Semua Perkhidmatan</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="kasut" class="produk-section">
+        <div class="container">
+            <h2>Koleksi Kasut Terbaru</h2>
+            <div class="produk-grid">
+                <div class="produk animate-pop-up">
+                    <img src="gambar/kasut1.jpg" alt="Nama Kasut">
+                    <h3>Nama Kasut</h3>
+                    <p>Deskripsi singkat sepatu.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <div class="produk animate-pop-up">
+                    <img src="gambar/kasut2.jpg" alt="Nama Kasut">
+                    <h3>Nama Kasut</h3>
+                    <p>Deskripsi singkat sepatu.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <div class="produk animate-pop-up">
+                    <img src="gambar/kasut3.jpg" alt="Nama Kasut">
+                    <h3>Nama Kasut</h3>
+                    <p>Deskripsi singkat sepatu.</p>
+                    <span class="harga">RM XX.XX</span>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+                <!-- Lebih banyak produk kasut -->
+            </div>
+            <div class="lihat-semua">
+                <a href="#">Lihat Semua Kasut</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang-kami" class="section">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="tentang-kami-content animate-slide-up">
+                <img src="gambar/tentang-kami.jpg" alt="Tentang Kami">
+                <p>Selamat datang di [Nama Kedai Anda], tempat di mana Anda dapat menemukan berbagai kebutuhan sehari-hari Anda. Kami berkomitmen untuk menyediakan produk berkualitas tinggi dan layanan terbaik untuk kepuasan pelanggan kami. Mulai dari makanan lezat yang dibuat dengan bahan-bahan segar, layanan cuci gorden profesional untuk menjaga kebersihan rumah Anda, hingga koleksi sepatu trendy untuk melengkapi gaya Anda.</p>
+                <p>Misi kami adalah untuk menjadi one-stop solution untuk semua kebutuhan Anda, memberikan kemudahan dan kenyamanan dalam berbelanja. Kami terus berinovasi dan memperluas jangkauan produk dan layanan kami untuk memenuhi harapan Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hubungi-kami" class="section bg-light">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <div class="hubungi-kami-grid animate-slide-up">
+                <div class="informasi-kontak">
+                    <h3>Informasi Kontak</h3>
+                    <p>Alamat: [Alamat Kedai Anda]</p>
+                    <p>Email: [Email Kedai Anda]</p>
+                    <p>Telepon: [Nomor Telepon Kedai Anda]</p>
+                </div>
+                <div class="formulir-kontak">
+                    <h3>Kirim Pesan</h3>
+                    <form>
+                        <input type="text" placeholder="Nama Anda">
+                        <input type="email" placeholder="Email Anda">
+                        <textarea placeholder="Pesan Anda"></textarea>
+                        <button type="submit">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 [Nama Kedai Anda]. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // script.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi saat halaman dimuat
+            const elementsWithFadeIn = document.querySelectorAll('.animate-fade-in');
+            elementsWithFadeIn.forEach(element => {
+                element.classList.add('loaded');
+            });
+
+            const elementsWithSlideIn = document.querySelectorAll('.animate-slide-in');
+            elementsWithSlideIn.forEach(element => {
+                element.classList.add('loaded');
+            });
+
+            const elementsWithPopUp = document.querySelectorAll('.animate-pop-up');
+            elementsWithPopUp.forEach(element => {
+                setTimeout(() => {
+                    element.classList.add('loaded');
+                }, 200); // Sedikit penundaan untuk efek stagger
+            });
+
+            const elementsWithSlideUp = document.querySelectorAll('.animate-slide-up');
+            elementsWithSlideUp.forEach(element => {
+                element.classList.add('loaded');
+            });
+
+            // Contoh fitur keranjang sederhana (tanpa backend)
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCountSpan = document.getElementById('cart-count');
+            let cartCount = 0;
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    cartCount++;
+                    cartCountSpan.textContent = cartCount;
+                    alert('Produk telah ditambahkan ke keranjang!'); // Ganti dengan notifikasi yang lebih baik
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
